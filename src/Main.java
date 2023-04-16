@@ -77,27 +77,37 @@ public class Main {
 
     public static void task6() {
         System.out.println("Задача 6");
-        int passengers = 59;
+        int wantToStand = 10;
+        int wantToSit = 10;
+        int passengers = wantToStand + wantToSit;
         int trainCar = 102;
+
         int sit = 60;
         int toStand = 42;
-        int seating = sit - passengers;
-        int handrails = toStand - (passengers - sit);
+        int seating = sit - wantToSit;
+        int handrails = toStand - wantToStand;
         if (passengers >= trainCar) {
             System.out.println("Вагон уже полностью забит");
         } else {
-            if (seating <= 0) {
-                System.out.println("В вагоне есть 0 сидячих и " + handrails + " стоячих мест");
+            if (seating == 0) {
+                System.out.println("В вагоне сидячих мест нет , но есть " + handrails + " стоячих");
             } else {
-                if (handrails >= toStand) {
-                    System.out.println("В вагоне есть " + seating + " сидячих и " + toStand + " стоячих мест");
+                if (handrails == 0) {
+                    System.out.println("В вагоне стоячих мест нет , но есть " + seating + " сидячих");
                 } else {
-                    System.out.println("В вагоне есть " + seating + " сидячих и " + handrails + " стоячих мест");
+                    if (wantToSit > sit) {
+                        System.out.println("В вагоне " + seating + " пассажиров не нашли сидячих мест, но есть " + handrails + " стоячих");
+                    } else {
+                        if (wantToStand > toStand) {
+                            System.out.println("В вагоне " + seating + " пассажиров не нашли стоячих мест, но есть " + handrails + " сидячих");
+                        } else {
+                            System.out.println("В вагоне есть " + seating + " сидячих и " + handrails + " стоячих мест");
+                        }
+                    }
                 }
             }
         }
     }
-
     public static void task7() {
         System.out.println("Задача 7");
         int a = 200;
